@@ -25,6 +25,15 @@ span{
     height: 10px;
 }
 
+@keyframes fade{
+    from{
+        transform: scale(1.5);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
 @keyframes carregando{
     from{
         width: 0%;
@@ -47,15 +56,110 @@ span::after{
 
 .bem-vindo{
     padding-top: 10px;
-    padding-bottom: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.bem-vindo h3{
+    padding-top: 15px;
+}
+
 .estrutura{
+    display: none;
     background-color: #EF5350;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    animation: fade 0.5s ease-in-out;
+}
+
+.cell{
+    width:200px;
+    height:200px;
+}
+
+.pikachu{
+    height: 80px;
+    width: 80px;
+}
+
+.bem-vindo h1{
+    display: flex;
+    align-items: center;
+}
+
+.segura-i{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.segura-i input{
+    outline: none;
+    width: 350px;
+    height: 35px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+button{
+    margin-top: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 8px;
+    transition: 0.5s ease-in-out;
+}
+
+button:hover{
+    background-color: black;
+    color: #ffffff;
+}
+
+.pokemons-list{
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px black solid;
+}
+
+.pokemons-list img{
+    transform: scale(1.3);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.pokemons-list div{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.nomep{
+    border-top: 3px black solid;
+    font-weight: bolder;
+    font-size: 23px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 100%;
+    border-radius: 0 !important;
+    background-color: transparent !important;
 }
