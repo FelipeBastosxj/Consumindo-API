@@ -20,7 +20,7 @@ async function fetchAPI (){
 
 
 
-function listar(ListPoke){
+async function listar(ListPoke){
 try{
 
     ListPoke.results.forEach(e =>{
@@ -41,7 +41,7 @@ function dom(p){
  adicionar = document.querySelector('.pokemons-list')
  div = document.createElement('div')
 
- div.innerHTML = `<div class= card>
+ div.innerHTML = `<div class= "card ${p.types[0].type.name}">
  <img src="${p.sprites.front_default}" alt="">
  <button class="nomep">
     ${p.name}
@@ -51,5 +51,46 @@ function dom(p){
 adicionar.appendChild(div)
 }
 
-
 fetchAPI()
+
+setTimeout(() => {
+    procurar = document.querySelectorAll('.nomep')
+
+    async function seachPoke(e){
+        try {
+
+            pokename = e.target.textContent.trim()
+            const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokename}`)
+            const pokemon = await resposta.json()
+            modalInsert(pokemon)
+
+         }catch(erro){
+             console.log(erro)
+         }
+    }
+    procurar.forEach(e =>{
+        e.addEventListener('click', seachPoke)
+    })
+},2000);
+
+
+function modalInsert(pokemon){
+  let foto = document.querySelector('.fotopp')
+  let titulop = document.querySelector('.infoT')
+
+  modal.style.display ='flex'
+
+  titulop.innerHTML = `${pokemon.name}`  
+  foto.innerHTML = `<img src="${pokemon.sprites.front_default}" alt=""></img>`
+  
+}
+
+let modal = document.querySelector('.modal')
+fecharmodal = document.querySelector('.fmodal')
+
+fecharmodal.addEventListener('click', () =>{
+    modal.style.display = 'none'
+})
+
+
+
