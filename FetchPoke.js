@@ -97,7 +97,7 @@ achar = document.querySelector('.achar')
 
 async function capitura(){
     
-    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${achar.value}`)
+    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${achar.value[0].toLowerCase() + achar.value.substr(1)}`)
 
     if(resposta.ok){
         const pokemon = await resposta.json()
