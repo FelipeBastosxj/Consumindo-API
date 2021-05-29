@@ -25,6 +25,17 @@ span{
     height: 10px;
 }
 
+@keyframes opacity{
+    from{
+        opacity: 0;
+        transform: scale(1.5);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @keyframes fade{
     from{
         transform: scale(1.5);
@@ -262,7 +273,7 @@ button:hover{
     display: flex;
     align-items: center;
     width: 100%;
-    border: 1px solid snow;
+    border-left: 1px solid snow;
     padding: 2px;
 }
 
@@ -439,6 +450,10 @@ button:hover{
     transform: scale(4);
 }
 
+.infoT{
+    color: #ffffff;
+}
+
 .infop{
     display: flex;
     width: 100%;
@@ -447,6 +462,54 @@ button:hover{
     align-items: center;
 }
 
+.infop h1{
+    color: red;
+}
+
+.cor{
+    color: rgb(26, 204, 26);
+}
+
+.corx{
+    color: pink;
+}
+
 .fmodal{
     margin-left: 350px !important;
+}
+
+.modal{
+    animation: opacity 0.5s ease-in-out;
+}
+
+.infoP{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+    height: 100%; 
+}
+
+.infoP div{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.status{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.status p{
+    padding: 2px;
+}
+
+.T{
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
