@@ -73,11 +73,11 @@ setTimeout(() => {
     })
 },2000);
 
+let foto = document.querySelector('.fotopp')
+let titulop = document.querySelector('.infoT')
 
 function modalInsert(pokemon){
-  let foto = document.querySelector('.fotopp')
-  let titulop = document.querySelector('.infoT')
-
+  
   modal.style.display ='flex'
 
   titulop.innerHTML = `${pokemon.name}`  
@@ -92,5 +92,24 @@ fecharmodal.addEventListener('click', () =>{
     modal.style.display = 'none'
 })
 
+capiturar = document.querySelector('.capiturar')
+achar = document.querySelector('.achar')
+
+async function capitura(){
+    
+    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${achar.value}`)
+
+    if(resposta.ok){
+        const pokemon = await resposta.json()
+        modal.style.display ='flex'
+        titulop.innerHTML = `${pokemon.name}`  
+        foto.innerHTML = `<img src="${pokemon.sprites.front_default}" alt=""></img>`
+    }else{
+        alert('Pokemon não encontrado ou não existe')
+    }
+   
+}
+
+capiturar.addEventListener('click', capitura)
 
 
